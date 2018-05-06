@@ -4,16 +4,14 @@ import android.content.Intent;
 import android.net.wifi.p2p.WifiP2pManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
-
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import static com.android.volley.toolbox.Volley.newRequestQueue;
@@ -21,6 +19,7 @@ import static com.android.volley.toolbox.Volley.newRequestQueue;
 public class MainActivity extends AppCompatActivity {
     private ArrayList<Hotel> listHotel = new ArrayList<Hotel>();
     private ArrayList<Room> listRoom = new ArrayList<Room>();
+    private int currentUserId;
     private HashMap<Hotel, ArrayList<Room>> childMapping = new HashMap<Hotel, ArrayList<Room>>();
     ExpandableListAdapter listAdapter;
     ExpandableListView expListView;
@@ -32,44 +31,52 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         expListView = (ExpandableListView) findViewById(R.id.expanded_menu);
+
+        Intent i = getIntent();
+        Bundle b = i.getExtras();
+        if(b!=null){
+            currentUserId = b.getInt("id_customer");
+        }
+
         refreshList();
     }
 
     public void refreshList() {
-
         Response.Listener<String> responseListener = new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
                     JSONArray jsonResponse = new JSONArray(response);
+                    JSONObject e = jsonResponse.getJSONObject(0).getJSONObject("hotel");
+                    JSONObject lokasi = e.getJSONObject("lokasi");
+                    Hotel h = new Hotel(e.getInt("id"), e.getString("nama"),
+                            new Lokasi(lokasi.getDouble("x"), lokasi.getDouble("y"), lokasi.getString("deskripsi")),
+                            e.getInt("bintang"));
+                    listHotel.add(h);
                     for (int i = 0; i < jsonResponse.length(); i++) {
-                        JSONObject e = jsonResponse.getJSONObject(i).getJSONObject("hotel");
-                        JSONObject lokasi = e.getJSONObject("lokasi");
                         JSONObject room = jsonResponse.getJSONObject(i);
-                        Hotel h = new Hotel(e.getInt("id"),e.getString("nama"),
-                                new Lokasi(lokasi.getDouble("x"), lokasi.getDouble("y"), lokasi.getString("deskripsi")),
-                                e.getInt("bintang"));
-                        hotelHashMap.put(h.getNama(), h);
-                        Room room1 = new Room(room.getString("nomorKamar"), room.getString("statusKamar"), room.getDouble("dailyTariff"), room.getString("tipeKamar"));
-
-                        if (!roomsMap.containsKey(h.getNama())) {
-                            ArrayList<Room> rooms = new ArrayList<>();
-                            rooms.add(room1);
-                            roomsMap.put(h.getNama(), rooms);
-                        } else {
-                            ArrayList<Room> rooms = roomsMap.get(h.getNama());
-                            rooms.add(room1);
-                            roomsMap.put(h.getNama(), rooms);
-                        }
+                        Room room1 = new Room(room.getString("nomorKamar"), room.getString("statusKamar"),
+                                room.getDouble("dailyTariff"),room.getString("tipeKamar"));
+                        listRoom.add(room1);
                     }
 
-                    for (String key : hotelHashMap.keySet()) {
-                        listHotel.add(hotelHashMap.get(key));
-
-                        childMapping.put(hotelHashMap.get(key), roomsMap.get(key));
-                    }
+                    childMapping.put(listHotel.get(0), listRoom);
                     listAdapter = new MenuListAdapter(MainActivity.this, listHotel, childMapping);
                     expListView.setAdapter(listAdapter);
+                    expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+                        @Override
+                        public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
+                        Room selected = childMapping.get(listHotel.get(groupPosition)).get(childPosition);
+                        Intent intent = new Intent(MainActivity.this, BuatPesananActivity.class);
+                        intent.putExtra("id_customer", currentUserId);
+                        intent.putExtra("nomorKamar", selected.getRoomNumber());
+                        intent.putExtra("dailyTariff", selected.getDailyTariff());
+                        intent.putExtra("id_hotel", listHotel.get(groupPosition).getID());
+                        startActivity(intent);
+                        return false;
+                        }
+                    }
+                    );
 
                 } catch (JSONException e1) {
                     e1.printStackTrace();
