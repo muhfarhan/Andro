@@ -53,7 +53,7 @@ public class BuatPesananActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 banyakHari = Integer.parseInt(durasi.getText().toString());
-                total.setText(String.valueOf(tariff*banyakHari));
+                //total.setText(String.valueOf(tariff*banyakHari));
                 pesan.setVisibility(View.VISIBLE);
                 hitung.setVisibility(View.INVISIBLE);
             }

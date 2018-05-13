@@ -5,6 +5,7 @@ import android.net.wifi.p2p.WifiP2pManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import com.android.volley.RequestQueue;
@@ -30,15 +31,25 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        expListView = (ExpandableListView) findViewById(R.id.expanded_menu);
+        final Button pesanan = (Button) findViewById(R.id.pesanan);
 
         Intent i = getIntent();
         Bundle b = i.getExtras();
         if(b!=null){
             currentUserId = b.getInt("id_customer");
         }
+        expListView = (ExpandableListView) findViewById(R.id.expanded_menu);
 
         refreshList();
+
+        pesanan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent pesananInt = new Intent(MainActivity.this, SelesaiPesananActivity.class);
+                pesananInt.putExtra("id_customer", currentUserId);
+                MainActivity.this.startActivity(pesananInt);
+            }
+        });
     }
 
     public void refreshList() {
