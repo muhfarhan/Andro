@@ -11,7 +11,7 @@ import java.util.Map;
  */
 
 public class PesananSelesaiRequest extends StringRequest {
-    private static final String Regis_URL = "http://192.168.2.101:8080/finishpesanan";
+    private static final String Regis_URL = "http://192.168.43.176:8080/finishpesanan";
     private Map<String, String> params;
 
     public PesananSelesaiRequest(String id_pesanan, Response.Listener<String> listener) {

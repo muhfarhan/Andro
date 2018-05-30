@@ -12,11 +12,11 @@ import java.util.Map;
  */
 
 public class PesananFetchRequest extends StringRequest {
-    private static final String Regis_URL = "http://192.168.2.101:8080/pesanancustomer/";
+    private static final String Regis_URL = "http://192.168.43.176:8080/pesanancustomer/";
     private Map<String, String> params;
 
     public PesananFetchRequest(String id_customer, Response.Listener<String> listener) {
-        super(Method.GET, Regis_URL+id_customer, listener, null);
+        super(Method.GET, Regis_URL + id_customer, listener, null);
         params = new HashMap<>();
     }
     @Override

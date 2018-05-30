@@ -28,8 +28,6 @@ public class Hotel {
         return bintang;
     }
 
-
-
     public void setID(int id){this.id = id;}
 
     public void setNama(String nama)

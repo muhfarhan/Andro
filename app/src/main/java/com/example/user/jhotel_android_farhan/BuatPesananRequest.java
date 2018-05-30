@@ -11,7 +11,7 @@ import java.util.Map;
  */
 
 public class BuatPesananRequest extends StringRequest {
-    private static final String Regis_URL = "http://192.168.1.105:8080/bookpesanan";
+    private static final String Regis_URL = "http://192.168.43.176:8080/bookpesanan";
     private Map<String, String> params;
 
     public BuatPesananRequest(String jumlah_hari, String id_customer, String id_hotel,
@@ -22,7 +22,6 @@ public class BuatPesananRequest extends StringRequest {
         params.put("id_customer",id_customer);
         params.put("id_hotel", id_hotel);
         params.put("nomor_kamar", nomor_kamar);
-
     }
     @Override
     public Map<String, String> getParams() {

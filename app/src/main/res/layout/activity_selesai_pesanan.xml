@@ -6,144 +6,157 @@
     android:layout_height="match_parent"
     tools:context="com.example.user.jhotel_android_farhan.SelesaiPesananActivity">
 
-    <RelativeLayout
-        android:id="@+id/tampilan"
-        android:layout_width="392dp"
-        android:layout_height="526dp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-4dp">
 
-        <Button
-            android:id="@+id/batal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/biaya_akhir"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="31dp"
-            android:text="Batal"
-            app:layout_constraintBottom_toTopOf="@+id/selesai"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <Button
+        android:id="@+id/batal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/biaya_akhir"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="140dp"
+        android:layout_marginEnd="101dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="300dp"
+        android:text="Batal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/selesai"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/selesai"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/batal"
-            android:layout_below="@+id/batal"
-            android:layout_marginTop="13dp"
-            android:text="Selesai"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/batal" />
+    <Button
+        android:id="@+id/selesai"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/batal"
+        android:layout_below="@+id/batal"
+        android:layout_marginBottom="140dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="300dp"
+        android:text="Selesai"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/batal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/idPesanan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:layout_marginEnd="24dp"
-            android:layout_marginStart="60dp"
-            android:layout_marginTop="57dp"
-            android:text="ID Pesanan        :"
-            app:layout_constraintBottom_toTopOf="@+id/biaya"
-            app:layout_constraintEnd_toStartOf="@+id/id_pesanan"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/idPesanan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="58dp"
+        android:layout_marginTop="80dp"
+        android:text="ID Pesanan        :"
+        app:layout_constraintBottom_toTopOf="@+id/biaya"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/biaya"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/idPesanan"
-            android:layout_below="@+id/idPesanan"
-            android:text=" Biaya                 :"
-            app:layout_constraintBottom_toTopOf="@+id/hari"
-            app:layout_constraintEnd_toStartOf="@+id/biaya_akhir"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/idPesanan" />
+    <TextView
+        android:id="@+id/biaya"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/idPesanan"
+        android:layout_below="@+id/idPesanan"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="58dp"
+        android:layout_marginTop="16dp"
+        android:text=" Biaya                 :"
+        app:layout_constraintBottom_toTopOf="@+id/hari"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idPesanan" />
 
-        <TextView
-            android:id="@+id/hari"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/jumlah_hari"
-            android:layout_alignBottom="@+id/jumlah_hari"
-            android:layout_alignEnd="@+id/tanggal_pesan"
-            android:text="Jumlah Hari      :"
-            app:layout_constraintBottom_toTopOf="@+id/tanggal_pesan"
-            app:layout_constraintEnd_toStartOf="@+id/jumlah_hari"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/biaya" />
+    <TextView
+        android:id="@+id/hari"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/jumlah_hari"
+        android:layout_alignBottom="@+id/jumlah_hari"
+        android:layout_alignEnd="@+id/tanggal_pesan"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="58dp"
+        android:layout_marginTop="16dp"
+        android:text="Jumlah Hari      :"
+        app:layout_constraintBottom_toTopOf="@+id/tanggal_pesan"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/biaya" />
 
-        <TextView
-            android:id="@+id/tanggal_pesan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/tanggal"
-            android:layout_alignBottom="@+id/tanggal"
-            android:layout_alignEnd="@+id/biaya"
-            android:text="Tanggal Pesan :"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/tanggal"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/hari" />
+    <TextView
+        android:id="@+id/tanggal_pesan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tanggal"
+        android:layout_alignBottom="@+id/tanggal"
+        android:layout_alignEnd="@+id/biaya"
+        android:layout_marginBottom="250dp"
+        android:layout_marginStart="58dp"
+        android:layout_marginTop="16dp"
+        android:text="Tanggal Pesan :"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hari" />
 
-        <TextView
-            android:id="@+id/id_pesanan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/idPesanan"
-            android:layout_alignBottom="@+id/idPesanan"
-            android:layout_alignEnd="@+id/jumlah_hari"
-            android:layout_marginEnd="11dp"
-            android:text="TextView"
-            app:layout_constraintBottom_toTopOf="@+id/biaya_akhir"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/idPesanan"
-            app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/id_pesanan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/idPesanan"
+        android:layout_alignBottom="@+id/idPesanan"
+        android:layout_alignEnd="@+id/jumlah_hari"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="164dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="82dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/biaya_akhir"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/idPesanan"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/biaya_akhir"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/jumlah_hari"
-            android:layout_alignStart="@+id/id_pesanan"
-            android:text="TextView"
-            app:layout_constraintBottom_toTopOf="@+id/jumlah_hari"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/biaya"
-            app:layout_constraintTop_toBottomOf="@+id/id_pesanan" />
+    <TextView
+        android:id="@+id/biaya_akhir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/jumlah_hari"
+        android:layout_alignStart="@+id/id_pesanan"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="164dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/jumlah_hari"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/biaya"
+        app:layout_constraintTop_toBottomOf="@+id/id_pesanan" />
 
-        <TextView
-            android:id="@+id/jumlah_hari"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/tanggal"
-            android:layout_below="@+id/biaya"
-            android:layout_marginTop="18dp"
-            android:text="TextView"
-            app:layout_constraintBottom_toTopOf="@+id/tanggal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/hari"
-            app:layout_constraintTop_toBottomOf="@+id/biaya_akhir" />
+    <TextView
+        android:id="@+id/jumlah_hari"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/tanggal"
+        android:layout_below="@+id/biaya"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="164dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/tanggal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/hari"
+        app:layout_constraintTop_toBottomOf="@+id/biaya_akhir" />
 
-        <TextView
-            android:id="@+id/tanggal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/jumlah_hari"
-            android:layout_marginStart="21dp"
-            android:layout_marginTop="11dp"
-            android:layout_toEndOf="@+id/idPesanan"
-            android:text="TextView"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/tanggal_pesan"
-            app:layout_constraintTop_toBottomOf="@+id/jumlah_hari" />
-    </RelativeLayout>
+    <TextView
+        android:id="@+id/tanggal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/jumlah_hari"
+        android:layout_marginBottom="250dp"
+        android:layout_marginEnd="164dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
+        android:layout_toEndOf="@+id/idPesanan"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tanggal_pesan"
+        app:layout_constraintTop_toBottomOf="@+id/jumlah_hari" />
 </android.support.constraint.ConstraintLayout>
